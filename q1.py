@@ -23,7 +23,7 @@ def calculate_metrics(y_true,y_pred):
     specificity=tn/(tn+fp) if (tn+fp)!=0 else 0
     npv=tn/(tn+fn) if (tn+fn)!=0 else 0
     mcc_denominator=np.sqrt((tp+fp)*(tp+fn)*(tn+fp)*(tn+fn))
-    mcc=((tp*tn)-(fp*fn)) if mcc_denominator!=0 else 0
+    mcc=((tp*tn)-(fp*fn))/mcc_denominator if mcc_denominator!=0 else 0
     return tp,tn,fp,fn,accuracy,precision,recall,f1,specificity,npv,mcc
 tp,tn,fp,fn,accuracy,precision,recall,f1,specificity,npv,mcc=calculate_metrics(y_test,y_pred)
 print(f"TP:{tp},TN:{tn},FP:{fp},FN:{fn}")
