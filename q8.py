@@ -1,43 +1,17 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[17]:
-
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
-
-# In[18]:
-
-
 df=pd.read_csv('diabetes.csv')
 
-
-# In[19]:
-
-
 X=df.values
-
-
-# In[23]:
-
 
 scaler=StandardScaler()
 X_scaled=scaler.fit_transform(X)
 
-
-# In[24]:
-
-
 k_values=[2,3,4]
-
-
-# In[26]:
-
 
 for k in k_values:
     kmeans=KMeans(n_clusters=k,random_state=0)
@@ -52,10 +26,3 @@ for k in k_values:
     plt.ylabel('Feature 2')
     plt.grid(True)
     plt.show()
-
-
-# In[ ]:
-
-
-
-
